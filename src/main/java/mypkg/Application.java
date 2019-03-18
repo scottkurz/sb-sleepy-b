@@ -1,5 +1,7 @@
 package mypkg;
 
+import java.util.Properties;
+
 import javax.batch.operations.JobOperator;
 import javax.batch.runtime.BatchRuntime;
 import javax.batch.runtime.BatchStatus;
@@ -24,7 +26,9 @@ public class Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception
     {
-    	long execId = jobOperator.start("sleepy-batchlet", new Properties().setProperty("sleep.time.seconds","5"));
+    	Properties jobParms = new Properties();
+    	jobParms.setProperty("sleep.time.seconds","5");
+    	long execId = jobOperator.start("sleepy-batchlet",jobParms);
     	waitForCompletion(execId);
     }
 

@@ -20,7 +20,7 @@
  * All Rights Reserved. Licensed Materials - Property of IBM.  
  */
 
-package com.ibm.ws.jbatch.sample.sleepybatchlet;
+package mypkg;
 
 import java.util.logging.Logger;
 

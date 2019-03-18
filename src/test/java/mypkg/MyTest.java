@@ -1,5 +1,6 @@
 package mypkg;
 
+import java.util.Properties;
 import java.util.concurrent.TimeoutException;
 
 import org.junit.Test;
@@ -9,7 +10,9 @@ public class MyTest {
 	
 	@Test
 	public void testSleepyB() throws TimeoutException{
-		JsrTestUtils.runJob("sleepy-batchlet"
+    	Properties jobParms = new Properties();
+    	jobParms.setProperty("sleep.time.seconds","5");
+		JsrTestUtils.runJob("sleepy-batchlet", jobParms, 100000);
 	}
 
 }

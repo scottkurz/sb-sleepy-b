@@ -56,8 +56,9 @@ public class SleepyBatchlet extends AbstractBatchlet {
      * The total sleep time, in seconds.  
      */
     @Inject
-    @BatchProperty(name = "sleep.time.seconds")
-    String sleepTimeSecondsProperty;
+    @BatchProperty(name = "sleepTimeSeconds")
+    private String sleepTimeSeconds;
+
     private int sleepTime_s = 15; 
 
     /**
@@ -68,8 +69,8 @@ public class SleepyBatchlet extends AbstractBatchlet {
 
         log("process", "entry");
 
-        if (sleepTimeSecondsProperty != null) {
-            sleepTime_s = Integer.parseInt(sleepTimeSecondsProperty);
+        if (sleepTimeSeconds != null) {
+            sleepTime_s = Integer.parseInt(sleepTimeSeconds);
         }
         
         log("process", "sleep for: " + sleepTime_s );
@@ -94,6 +95,14 @@ public class SleepyBatchlet extends AbstractBatchlet {
         log("stop:", "");
         stopRequested = true;
     }
+
+	public String getSleepTimeSeconds() {
+		return sleepTimeSeconds;
+	}
+
+	public void setSleepTimeSeconds(String sleepTimeSeconds) {
+		this.sleepTimeSeconds = sleepTimeSeconds;
+	}
 
 }
 

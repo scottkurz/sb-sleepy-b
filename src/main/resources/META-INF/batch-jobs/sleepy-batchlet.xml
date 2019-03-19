@@ -26,13 +26,17 @@
  - 
  - All Rights Reserved. Licensed Materials - Property of IBM.  
  -->
-    <bean id="batchlet" class="mypkg.SleepyBatchlet"/>
+    <bean id="batchlet" class="mypkg.SleepyBatchlet" scope="step">
+        <property name="sleepTimeSeconds" value="#{jobParameters['sleepTimeSeconds']}"/>
+    </bean>
     <job id="sleepy-batchlet" xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="1.0">
         <step id="step1">
             <batchlet ref="batchlet">
+            <!-- 
                 <properties>
                     <property name="sleep.time.seconds" value="#{jobParameters['sleep.time.seconds']}" />
                 </properties>
+ -->
             </batchlet>
         </step>
     </job>

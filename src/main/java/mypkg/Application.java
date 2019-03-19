@@ -27,7 +27,7 @@ public class Application implements CommandLineRunner {
     public void run(String... args) throws Exception
     {
     	Properties jobParms = new Properties();
-    	jobParms.setProperty("sleep.time.seconds","5");
+    	jobParms.setProperty("sleepTimeSeconds","5");
     	long execId = jobOperator.start("sleepy-batchlet",jobParms);
     	waitForCompletion(execId);
     }

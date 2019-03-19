@@ -11,7 +11,7 @@ public class MyTest {
 	@Test
 	public void testSleepyB() throws TimeoutException{
     	Properties jobParms = new Properties();
-    	jobParms.setProperty("sleep.time.seconds","5");
+    	jobParms.setProperty("sleepTimeSeconds","6");
 		JsrTestUtils.runJob("sleepy-batchlet", jobParms, 100000);
 	}
 

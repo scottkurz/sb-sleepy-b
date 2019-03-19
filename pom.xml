@@ -53,15 +53,13 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-            <plugin>
+			<plugin>
 				<groupId>io.openliberty.boost</groupId>
 				<artifactId>boost-maven-plugin</artifactId>
 				<version>0.1.3-SNAPSHOT</version>
 				<executions>
 					<execution>
 						<goals>
-							<!-- Test packaging before docker-build to validate usage of correct 
-								artifact -->
 							<goal>package</goal>
 							<goal>docker-build</goal>
 						</goals>
